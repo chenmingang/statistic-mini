@@ -18,16 +18,16 @@ public class LogParam {
     @Override
     public String toString() {
         return "LogParam{" +
-                "url='" + url + '\'' +
-                ",refer='" + refer + '\'' +
-                ",title='" + title + '\'' +
-                ",charset='" + charset + '\'' +
-                ",readyState='" + readyState + '\'' +
-                ",cookie='" + cookie + '\'' +
-                ",userAgent='" + userAgent + '\'' +
-                ",language='" + language + '\'' +
-                ",screenWidth='" + screenWidth + '\'' +
-                ",screenHeight='" + screenHeight + '\'' +
+                "url=" + url +
+                ",refer=" + refer+
+                ",title=" + title +
+                ",charset=" + charset +
+                ",readyState=" + readyState +
+                ",cookie=" + cookie +
+                ",userAgent=" + userAgent +
+                ",language=" + language +
+                ",screenWidth=" + screenWidth +
+                ",screenHeight=" + screenHeight +
                 '}';
     }
 
