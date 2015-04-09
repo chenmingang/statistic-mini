@@ -1,34 +1,32 @@
 package cn.edu.sdut.mapreduce;
 
-import java.io.IOException;
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
- import org.apache.hadoop.conf.*;
- import org.apache.hadoop.io.*;
- import org.apache.hadoop.mapreduce.*;
- import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
- import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.hadoop.io.IntWritable;
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapreduce.Job;
+import org.apache.hadoop.mapreduce.Mapper;
+import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
+import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
+
+import java.io.IOException;
 
 /**
  * Created by momo on 15-4-1.
  */
-public class Log {
-    public static class TokenizerMapper extends Mapper<Object, Text, Text, Text>{
+public class SplitParam {
+    public static class SplitMapper extends Mapper<Object, Text, Text, Text>{
     private Text date = new Text();
     private Text params = new Text();
     public void map(Object key, Text value, Context context) throws IOException, InterruptedException {
-        String line=value.toString();
-        String check=line.substring(25,33);
-        if(check.equalsIgnoreCase("LogParam")){
-            String dateStr=line.substring(0,19);
-            String paramsStr=line.substring(34);
-            date.set(dateStr);
-            params.set(paramsStr);
-            context.write(date,params);
-        }
+        String log=value.toString();
+        String[] logArr=log.split("\\t");
+
     }
   }
-  public static class IntSumReducer extends Reducer<Text,Text,Text,Text> {
+  public static class SplitReducer extends Reducer<Text,Text,Text,Text> {
     public void reduce(Text key, Text value,Context context) throws IOException, InterruptedException {
       context.write(key, value);
     }
@@ -41,10 +39,10 @@ public class Log {
       System.exit(2);
     }
     Job job = new Job(conf, "word count");
-    job.setJarByClass(Log.class);
-    job.setMapperClass(TokenizerMapper.class);
-    job.setCombinerClass(IntSumReducer.class);
-    job.setReducerClass(IntSumReducer.class);
+    job.setJarByClass(SplitParam.class);
+    job.setMapperClass(SplitMapper.class);
+    job.setCombinerClass(SplitReducer.class);
+    job.setReducerClass(SplitReducer.class);
     job.setOutputKeyClass(Text.class);
     job.setOutputValueClass(Text.class);
     FileInputFormat.addInputPath(job, new Path(otherArgs[0]));

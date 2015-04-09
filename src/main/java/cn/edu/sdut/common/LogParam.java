@@ -19,15 +19,15 @@ public class LogParam {
     public String toString() {
         return "LogParam{" +
                 "url=" + url +
-                ",refer=" + refer+
-                ",title=" + title +
-                ",charset=" + charset +
-                ",readyState=" + readyState +
-                ",cookie=" + cookie +
-                ",userAgent=" + userAgent +
-                ",language=" + language +
-                ",screenWidth=" + screenWidth +
-                ",screenHeight=" + screenHeight +
+                "{|}refer=" + refer+
+                "{|}title=" + title +
+                "{|}charset=" + charset +
+                "{|}readyState=" + readyState +
+                "{|}cookie=" + cookie +
+                "{|}userAgent=" + userAgent +
+                "{|}language=" + language +
+                "{|}screenWidth=" + screenWidth +
+                "{|}screenHeight=" + screenHeight +
                 '}';
     }
 
