@@ -8,10 +8,11 @@ public class Test {
 //        String log="2015-04-06 21:16:26_INFO_LogParam{url=http://localhost:8080/statistic,refer=,title=,charset=GBK,readyState=loading,cookie=autologin=1; cookie_login=\"bGlseTo3NDJkMDZjZWIwZjhhNTkwNjJkYTYyNzYxM2Y0YzZkZg==\",userAgent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/34.0.1847.116 Chrome/34.0.1847.116 Safari/537.36,language=en-US,screenWidth=1366,screenHeight=768}";
 //        System.out.println(log.substring(25,33));
 //        System.out.println(log.substring(34));
-        String log="2015-04-06 21:16:17\turl=http://localhost:8080/statistic,refer=,title=,charset=GBK,readyState=loading,cookie=autologin=1; cookie_login=\"bGlseTo3NDJkMDZjZWIwZjhhNTkwNjJkYTYyNzYxM2Y0YzZkZg==\",userAgent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/34.0.1847.116 Chrome/34.0.1847.116 Safari/537.36,language=en-US,screenWidth=1366,screenHeight=768}";
+        String log="2015-04-06 21:16:17\turl=http://localhost:8080/statistic{|}refer={|}title={|}charset=GBK{|}readyState=loading{|}cookie=autologin=1; cookie_login=\"bGlseTo3NDJkMDZjZWIwZjhhNTkwNjJkYTYyNzYxM2Y0YzZkZg==\"; columns=true,false,true,true,false,true,true,true,true,true,true,true,false,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,; user_b_columns=true,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,{|}userAgent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/34.0.1847.116 Chrome/34.0.1847.116 Safari/537.36{|}language=en-US{|}screenWidth=1366{|}screenHeight=768}";
         String[] logStr=log.split("\\t");
         String l=logStr[1];
-
+        String[] s=l.split("\\{\\|\\}");
+        System.out.println(s[3]);
 
     }
 }

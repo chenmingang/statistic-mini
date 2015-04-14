@@ -1,5 +1,5 @@
 var param=collectParam();
-httpReq("http://localhost:8080/statistic/passport.js",param);
+httpReq("http://210.44.176.245:7080/statistic/passport.js",param);
 function collectParam(){
     var param='?';
     param=param+"&url="+document.URL;

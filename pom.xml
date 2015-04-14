@@ -198,9 +198,6 @@
 	    	<scope>test</scope>
 	    </dependency>
 
-
-
-
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>
@@ -227,17 +224,15 @@
     <build>
         <finalName>statistic</finalName>
         <plugins>
-            <!-- Force Java 6 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.4</version>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                 </configuration>
             </plugin>
-            <!-- Surefire plugin before 2.9 version is buggy -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.12</version>
@@ -246,13 +241,6 @@
     </build>
     <profiles>
         <profile>
-            <!-- When built in OpenShift the 'openshift' profile will be 
-                used when invoking mvn. -->
-            <!-- Use this profile for any OpenShift specific customization 
-                your app will need. -->
-            <!-- By default that is to put the resulting archive into the 
-                'deployments' folder. -->
-            <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
             <id>openshift</id>
             <build>
                 <plugins>
